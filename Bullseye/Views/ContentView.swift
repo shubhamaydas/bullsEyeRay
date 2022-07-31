@@ -32,19 +32,19 @@ struct ContentView: View {
                     HStack {
                         Text("1")
                             .fontWeight(.bold)
-                        Slider(value: self.$sliderValue, in: 1.0...100.0)
+                        Slider(value: $sliderValue, in: 1.0...100.0)
                         Text("100")
                             .fontWeight(.bold)
                     }
                     
                 }
                 Button(action: {
-                    self.alertIsVisible = true
+                    alertIsVisible = true
                 }) {
                     Text("Hit me")
                 }.alert(isPresented: $alertIsVisible, content: {
                     let roundedValue:Int = Int(self.sliderValue.rounded())
-                    return Alert(title: Text("Hello There"), message: Text("Slider Value: \(self.sliderValue) and rounded value is \(roundedValue) you scored \(self.game.points(sliderValue: roundedValue)) points this round"), dismissButton: .default(Text("Awesome")))
+                    return Alert(title: Text("Hello There"), message: Text("Slider Value: \(self.sliderValue) and rounded value is \(roundedValue) you scored \(game.points(sliderValue: roundedValue)) points this round"), dismissButton: .default(Text("Awesome")))
                 })
             }
         }
